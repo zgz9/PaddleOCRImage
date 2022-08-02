@@ -2,7 +2,8 @@
 ## 介绍
 核心是基于[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)开发的北京健康宝截图识别程序，可以识别健康宝截图的绿码、黄码和红码以及核酸状态。\
 开发思路是用户通过手机在北京健康宝截图，通过订阅号上传到微信订阅号服务器，并保存订阅号的id和图片信息。通过定时任务执行程序扫描订阅号采集的数据库记录，
-下载图片到服务器本地，利用PaddleOCR识别图片并将识别结果更新到数据库中。
+下载图片到服务器本地，利用PaddleOCR识别图片并将识别结果更新到数据库中。\
+微信订阅号模块的程序是从开源项目[weixin-java-mp-demo](https://github.com/binarywang/weixin-java-mp-demo)复用的，非常感谢！
 ## 环境搭建
 
 ### 开发工具
