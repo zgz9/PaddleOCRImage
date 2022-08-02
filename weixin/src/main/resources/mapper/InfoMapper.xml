@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.binarywang.demo.wx.mp.mapper.InfoMapper">
+
+    <insert id="insertUserInfo" >
+    INSERT INTO `wx_userinfo`
+    ( from_user,to_user,user_name,job_number,creater_time,insert_time)
+    VALUES (
+    #{fromUser},
+    #{toUser},
+    #{userName},
+    #{jobNumber},
+    #{createTime},
+    now()
+    )
+    </insert>
+    <insert id="insertImageInfo">
+    INSERT INTO `wx_imageinfo`
+    ( from_user,to_user,pic_url,creater_time,insert_time)
+    VALUES (
+    #{fromUser},
+    #{toUser},
+    #{picUrl},
+    #{createTime},
+    now()
+    )
+    </insert>
+
+    <select id="queryUserInfo"  resultType="java.util.Map">
+        select * from wx_userinfo
+        where 1 = 1
+        <if test="fromUser !=null and fromUser != ''">
+            and from_user = #{fromUser}
+        </if>
+        <if test="toUser !=null and toUser != ''">
+            and to_user = #{toUser}
+        </if>
+    </select>
+
+</mapper>
